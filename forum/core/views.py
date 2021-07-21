@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 from .models import Book
+from .forms import BookForm
 
 
 #@method_decorator(login_required, name='dispatch')
@@ -10,6 +11,7 @@ class BookCreateView(CreateView):
     template_name = 'create.html'
     fields = ["name","isbn_number" ]
     success_url = "/"
+
 
 class IndexView(ListView):
     model= Book
