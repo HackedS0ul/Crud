@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView, FormView
 from .models import Book
+from .forms import BookForm
 
 
 #@method_decorator(login_required, name='dispatch')
 
-class BookCreateView(CreateView):
-    model = Book
+class BookCreateView(FormView):
+    form_class = BookForm
     template_name = 'create.html'
-    fields = ["name","isbn_number" ]
     success_url = "/"
 
 class IndexView(ListView):
