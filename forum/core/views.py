@@ -11,6 +11,7 @@ class BookCreateView(FormView):
     template_name = 'create.html'
     success_url = "/"
 
+
 class IndexView(ListView):
     model= Book
     template_name= 'listview.html'
