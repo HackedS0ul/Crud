@@ -7,7 +7,7 @@ IN_STORE = (
     ("YES", "Yes"),
     ("NO", "No"),
 )
-class BookForm(forms.Form):
+class BookForm(forms.ModelForm):
     isbn_number = forms.CharField(label="Barcode", required=False)
     name = forms.CharField(label="Book name")
     description = forms.CharField(label="Short Description", max_length=500)

@@ -6,9 +6,16 @@ from .forms import BookForm
 
 #@method_decorator(login_required, name='dispatch')
 
-class BookCreateView(FormView):
-    form_class = BookForm
+class BookCreateView(CreateView):
+    model = Book
     template_name = 'create.html'
+    fields = [
+            'name',
+            'isbn_number',
+            'description',
+            'author',
+            'in_store',
+        ]
     success_url = "/"
 
 
@@ -24,7 +31,13 @@ class BookDetailView(DetailView):
 class BookUpdateView(UpdateView):
     model = Book
     template_name = 'update.html'
-    fields = ["name","isbn_number" ]
+    fields = [
+            'name',
+            'isbn_number',
+            'description',
+            'author',
+            'in_store',
+        ]
     success_url = "/"
 
 class BookDeleteView(DeleteView):
